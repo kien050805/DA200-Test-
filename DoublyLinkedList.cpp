@@ -20,7 +20,7 @@ List<T>::List(const T &list)
     Node *current = list.head;
     while (current != nullptr)
     {
-        append(current->data);
+        append(current->item);
         current = current->next;
     }
 };
@@ -46,7 +46,7 @@ void List<T>::append(const T &item)
 template <class T>
 void List<T>::insert(const T &item, int index)
 {
-    if (index < 0 || index >= size)
+    if (index < 0 || index > size)
     {
         throw out_of_range("Index out of range");
     }
@@ -150,7 +150,7 @@ int List<T>::search(const T &item) const
 
     while (current != nullptr)
     {
-        if (current->data == item)
+        if (current->item == item)
         {
             return index;
         }
@@ -167,7 +167,7 @@ T &List<T>::operator[](int index)
 {
     if (index < 0 || index >= size)
     {
-        throw std::out_of_range("Index out of range");
+        throw out_of_range("Index out of range");
     }
 
     Node *current = head;
@@ -176,7 +176,7 @@ T &List<T>::operator[](int index)
         current = current->next;
     }
 
-    return current->data;
+    return current->item;
 }
 
 // Length method
@@ -203,7 +203,7 @@ List<T> List<T>::concat(const List<T> &list) const
     Node *current = head;
     while (current != nullptr)
     {
-        result.append(current->data);
+        result.append(current->item);
         current = current->next;
     }
 
@@ -211,7 +211,7 @@ List<T> List<T>::concat(const List<T> &list) const
     current = list.head;
     while (current != nullptr)
     {
-        result.append(current->data);
+        result.append(current->item);
         current = current->next;
     }
 

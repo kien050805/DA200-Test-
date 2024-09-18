@@ -17,8 +17,8 @@ List<T>::List(const T &list)
     head = nullptr;
     tail = nullptr;
     size = 0;
-    Node<T>* current = list.head;
-    while (current != nullptr) 
+    Node *current = list.head;
+    while (current != nullptr)
     {
         append(current->data);
         current = current->next;
@@ -28,7 +28,7 @@ List<T>::List(const T &list)
 template <class T>
 List<T>::~List(void)
 {
-    Node* current = head;
+    Node *current = head;
     while (head != nullptr)
     {
         head = head->next;
@@ -87,15 +87,16 @@ void List<T>::insert(const T &item, int index)
     size++;
 };
 
-template<typename T>
-void List<T>::prepend(const T& item) 
+template <typename T>
+void List<T>::prepend(const T &item)
 {
-    Node<T>* newNode = new Node<T>(item);
-    if (empty()) 
+    Node *newNode = new Node(item);
+    if (empty())
     {
         head = newNode;
         tail = newNode;
-    } else 
+    }
+    else
     {
         newNode->next = head;
         head->prev = newNode;
@@ -104,42 +105,42 @@ void List<T>::prepend(const T& item)
     size++;
 }
 
-template<typename T>
-void List<T>::remove(int index) 
+template <typename T>
+void List<T>::remove(int index)
 {
-    if (index < 0 || index >= size) 
+    if (index < 0 || index >= size)
     {
         throw std::out_of_range("Index out of range");
     }
 
-    Node<T>* current = head;
+    Node *current = head;
 
-    if (index == 0) 
+    if (index == 0)
     {
         head = head->next;
-        if (head != nullptr) 
+        if (head != nullptr)
         {
             head->prev = nullptr;
-        } 
-        else 
+        }
+        else
         {
             tail = nullptr; // If the list becomes empty
         }
         delete current;
-    } 
-    else 
+    }
+    else
     {
-        for (int i = 0; i < index; ++i) 
+        for (int i = 0; i < index; ++i)
         {
             current = current->next;
         }
 
         current->prev->next = current->next;
-        if (current->next != nullptr) 
+        if (current->next != nullptr)
         {
             current->next->prev = current->prev;
-        } 
-        else 
+        }
+        else
         {
             tail = current->prev; // Update the tail if the last element is removed
         }
@@ -149,15 +150,15 @@ void List<T>::remove(int index)
     size--;
 }
 
-template<typename T>
-int List<T>::search(const T& item) const 
+template <typename T>
+int List<T>::search(const T &item) const
 {
-    Node<T>* current = head;
+    Node *current = head;
     int index = 0;
 
-    while (current != nullptr) 
+    while (current != nullptr)
     {
-        if (current->data == item) 
+        if (current->data == item)
         {
             return index;
         }
@@ -169,16 +170,16 @@ int List<T>::search(const T& item) const
 }
 
 // Operator[] method
-template<typename T>
-T& List<T>::operator[](int index) 
+template <typename T>
+T &List<T>::operator[](int index)
 {
-    if (index < 0 || index >= size) 
+    if (index < 0 || index >= size)
     {
         throw std::out_of_range("Index out of range");
     }
 
-    Node<T>* current = head;
-    for (int i = 0; i < index; ++i) 
+    Node *current = head;
+    for (int i = 0; i < index; ++i)
     {
         current = current->next;
     }
@@ -187,28 +188,28 @@ T& List<T>::operator[](int index)
 }
 
 // Length method
-template<typename T>
-int List<T>::length() const 
+template <typename T>
+int List<T>::length() const
 {
     return size;
 }
 
 // Empty method
-template<typename T>
-bool List<T>::empty() const 
+template <typename T>
+bool List<T>::empty() const
 {
     return size == 0;
 }
 
 // Concatenation method
-template<typename T>
-List<T> List<T>::concat(const List<T>& list) const 
+template <typename T>
+List<T> List<T>::concat(const List<T> &list) const
 {
     List<T> result;
 
     // Copy the elements from the first list (this)
-    Node<T>* current = head;
-    while (current != nullptr) 
+    Node *current = head;
+    while (current != nullptr)
     {
         result.append(current->data);
         current = current->next;

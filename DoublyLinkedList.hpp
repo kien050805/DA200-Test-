@@ -23,17 +23,20 @@ private:
 
 public:
     List(void);
-    List(const T &list)
+    List(const T &list);
     ~List(void);
-    void prepend(const T& item);
+
     void append(const T &item);
+    void prepend(const T& item);
     void insert(const T &item, int index);
     void remove(int index);
+
     int search(const T& item) const;
-    T& operator[](int index);
     int length() const;
     bool empty() const;
-    
+    List<T> concat(const List<T>& list) const;
+
+    T& operator[](int index);
     friend ostream &operator<<(ostream &os, List<T> &list)
     {
         Node *ptr = list.head;

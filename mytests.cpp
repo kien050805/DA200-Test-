@@ -1,5 +1,6 @@
 #include <iostream>
 #include "DoublyLinkedList.hpp"
+#include "DoublyLinkedList.cpp"
 
 int main (void)
 {

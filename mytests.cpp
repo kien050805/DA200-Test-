@@ -2,7 +2,7 @@
 #include "DoublyLinkedList.hpp"
 #include "DoublyLinkedList.cpp"
 
-void testPrepend() 
+void testPrepend()
 {
     List<int> list;
     list.prepend(10);
@@ -12,7 +12,7 @@ void testPrepend()
     cout << "List:" << list << endl;
 }
 
-void testAppend() 
+void testAppend()
 {
     List<int> list;
     list.append(10);
@@ -22,29 +22,29 @@ void testAppend()
     cout << "List after appending:" << list << endl;
 }
 
-void testInsert() 
+void testInsert()
 {
     List<int> list;
     list.append(10);
     list.append(20);
     cout << "List before inserting:" << list << endl;
-    
-    list.insert(15, 1);  // Insert 15 between 10 and 20
+
+    list.insert(15, 1); // Insert 15 between 10 and 20
     cout << "List after inserting:" << list << endl;
 }
 
-void testRemove() 
+void testRemove()
 {
     List<int> list;
     list.append(10);
     list.append(20);
     list.append(30);
     cout << "List before removing:" << list << endl;
-    list.remove(1);  // Remove element at index 1 (20)
+    list.remove(1); // Remove element at index 1 (20)
     cout << "List after removing:" << list << endl;
 }
 
-void testSearch() 
+void testSearch()
 {
     List<int> list;
     list.append(10);
@@ -54,10 +54,10 @@ void testSearch()
     cout << list.search(10) << endl;
     cout << list.search(20) << endl;
     cout << list.search(30) << endl;
-    cout << list.search(40) << endl;  // 40 is not in the list
+    cout << list.search(40) << endl; // 40 is not in the list
 }
 
-void testOperatorBrackets() 
+void testOperatorBrackets()
 {
     List<int> list;
     list.append(10);
@@ -70,10 +70,10 @@ void testOperatorBrackets()
 
     // Modify the value at index 1
     list[1] = 25;
-    cout << "After modifying value at index 1:" <<list[1] << endl;
+    cout << "After modifying value at index 1:" << list[1] << endl;
 }
 
-void testLength() 
+void testLength()
 {
     List<int> list;
     list.append(10);
@@ -83,7 +83,7 @@ void testLength()
     cout << "Length of the list: " << list.length() << endl;
 }
 
-void testEmpty() 
+void testEmpty()
 {
     List<int> list;
     cout << "Is the list empty? " << list.empty() << endl;
@@ -92,7 +92,7 @@ void testEmpty()
     cout << "Is the list empty after appending a value? " << list.empty() << endl;
 }
 
-void testConcat() 
+void testConcat()
 {
     List<int> list1;
     list1.append(10);
@@ -105,10 +105,9 @@ void testConcat()
     List<int> list3 = list1.concat(list2);
 
     cout << "Concated list: " << list3 << endl;
-
 }
 
-int main() 
+int main()
 {
     testPrepend();
     testAppend();

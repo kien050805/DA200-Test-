@@ -9,8 +9,3 @@ mytests.o: mytests.cpp DoublyLinkedList.hpp
 
 list: DoublyLinkedList.cpp DoublyLinkedList.hpp
 	g++ -c DoublyLinkedList.cpp -o doublylinkedlist
-
-driver: mytests.cpp DoublyLinkedList.hpp DoublyLinkedList.cpp
-	g++ -o driver mytests.cpp
-	./driver
- 

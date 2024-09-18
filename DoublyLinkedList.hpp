@@ -23,10 +23,16 @@ private:
 
 public:
     List(void);
+    List(const T &list)
     ~List(void);
-
+    void prepend(const T& item);
     void append(const T &item);
     void insert(const T &item, int index);
+    void remove(int index);
+    int search(const T& item) const;
+    T& operator[](int index);
+    int length() const;
+    bool empty() const;
     
     friend ostream &operator<<(ostream &os, List<T> &list)
     {

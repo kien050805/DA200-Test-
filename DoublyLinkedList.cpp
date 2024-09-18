@@ -46,6 +46,10 @@ void List<T>::append(const T &item)
 template <class T>
 void List<T>::insert(const T &item, int index)
 {
+    if (index < 0 || index >= size)
+    {
+        throw out_of_range("Index out of range");
+    }
     Node *temp = new Node;
     temp->item = item;
 
@@ -90,19 +94,7 @@ void List<T>::insert(const T &item, int index)
 template <typename T>
 void List<T>::prepend(const T &item)
 {
-    Node *newNode = new Node(item);
-    if (empty())
-    {
-        head = newNode;
-        tail = newNode;
-    }
-    else
-    {
-        newNode->next = head;
-        head->prev = newNode;
-        head = newNode;
-    }
-    size++;
+    insert(item, 0);
 }
 
 template <typename T>
@@ -110,7 +102,7 @@ void List<T>::remove(int index)
 {
     if (index < 0 || index >= size)
     {
-        throw std::out_of_range("Index out of range");
+        throw out_of_range("Index out of range");
     }
 
     Node *current = head;

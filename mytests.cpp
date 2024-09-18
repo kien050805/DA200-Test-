@@ -107,6 +107,17 @@ void testConcat()
     cout << "Concated list: " << list3 << endl;
 }
 
+void testCopy()
+{
+    List<int> list1;
+    list1.append(10);
+    list1.append(20);
+
+    List<int>list2(list1);
+
+    cout << "Copy list: " << list2 << endl;
+}
+
 int main()
 {
     testPrepend();
@@ -118,6 +129,7 @@ int main()
     testLength();
     testEmpty();
     testConcat();
+    testCopy();
 
     return 0;
 }

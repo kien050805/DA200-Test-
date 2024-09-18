@@ -9,7 +9,7 @@ void testPrepend()
     list.prepend(20);
     list.prepend(30);
 
-    cout << "List:" << list << endl;
+    cout << "List after prepend:" << list << endl;
 }
 
 void testAppend()

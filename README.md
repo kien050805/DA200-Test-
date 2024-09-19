@@ -1,4 +1,4 @@
-# CS 271 Project 0: Doubly-Linked Lists
+# Group 3 CS 271 Project 0: Doubly-Linked Lists
 
 ## Contributors:
 - Amaya Joshi

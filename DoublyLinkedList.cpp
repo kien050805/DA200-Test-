@@ -6,6 +6,7 @@ using namespace std;
 template <class T>
 List<T>::List(void)
 {
+    \\ Create an empty list, setting the head and tail values as null pointers
     head = nullptr;
     tail = nullptr;
     size = 0;
@@ -14,12 +15,16 @@ List<T>::List(void)
 template <class T>
 List<T>::List(const T &list)
 {
+    \\ Create a new empty list
     head = nullptr;
     tail = nullptr;
     size = 0;
+
+    \\ Iterate through the inputted list
     Node *current = list.head;
     while (current != nullptr)
     {
+        \\ Add each item from inputted list to newly created list
         append(current->item);
         current = current->next;
     }
@@ -31,6 +36,7 @@ List<T>::~List(void)
     Node *current = head;
     while (head != nullptr)
     {
+        \\ Iterate through the entire list and delete each index
         head = head->next;
         delete current;
         current = head;
@@ -40,12 +46,14 @@ List<T>::~List(void)
 template <class T>
 void List<T>::append(const T &item)
 {
+    \\ Add inputted item to final index of inputted list
     insert(item, size);
 };
 
 template <class T>
 void List<T>::insert(const T &item, int index)
 {
+    \\ Test if the given index is invalid
     if (index < 0 || index > size)
     {
         throw out_of_range("Index out of range");
@@ -53,6 +61,7 @@ void List<T>::insert(const T &item, int index)
     Node *temp = new Node;
     temp->item = item;
 
+    \\ If list is empty, set the head and tail value to the inputted item and arranges list accordingly
     if (size == 0)
     {
         temp->next = nullptr;
@@ -61,6 +70,7 @@ void List<T>::insert(const T &item, int index)
         head = temp;
         tail = temp;
     }
+    \\ If inputted index is 0, sets the head to the inputted item and arranges list accordingly
     else if (index == 0)
     {
         temp->next = head;
@@ -68,6 +78,7 @@ void List<T>::insert(const T &item, int index)
         head->prev = temp;
         head = temp;
     }
+    \\ If inputted index is the last in the list, sets the tail to the inputted item and arranges list accordingly
     else if (index == size)
     {
         temp->next = nullptr;
@@ -77,12 +88,14 @@ void List<T>::insert(const T &item, int index)
     }
     else
     {
+        \\ Iterate through list until index is reached
         Node *current = head;
         for (int i = 0; i < index - 1; i++)
         {
             current = current->next;
         };
 
+        \\ Set current index to the inputted item and arrange list accordingly
         temp->next = current->next;
         temp->prev = current;
         current->next->prev = temp;
@@ -94,6 +107,7 @@ void List<T>::insert(const T &item, int index)
 template <typename T>
 void List<T>::prepend(const T &item)
 {
+    \\ Inserts inputted item at the first index of the list
     insert(item, 0);
 }
 
@@ -102,7 +116,7 @@ void List<T>::remove(int index)
 {
     if (index < 0 || index >= size)
     {
-        throw out_of_range("Index out of range");
+        throw out_of_range("Index out of range"); \\ Test if the given index is invalid
     }
 
     Node *current = head;

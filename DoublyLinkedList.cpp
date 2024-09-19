@@ -13,18 +13,15 @@ List<T>::List(void)
 };
 
 template <class T>
-List<T>::List(const T &list)
+List<T>::List(const List<T> &list)
 {
-    \\ Create a new empty list
     head = nullptr;
     tail = nullptr;
     size = 0;
 
-    \\ Iterate through the inputted list
     Node *current = list.head;
     while (current != nullptr)
     {
-        \\ Add each item from inputted list to newly created list
         append(current->item);
         current = current->next;
     }

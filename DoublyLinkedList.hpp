@@ -23,7 +23,7 @@ private:
 
 public:
     List(void);
-    List(const T &list);
+    List(const List<T> &list);
     ~List(void);
 
     void append(const T &item);
